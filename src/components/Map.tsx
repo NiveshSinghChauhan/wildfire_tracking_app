@@ -4,6 +4,9 @@ import { LocationMarker } from './LocationMarker';
 import { nanoid } from 'nanoid';
 import EventInfo from './EventInfo';
 
+// Google API key
+const GOOGLE_API_KEY: string = 'YOUR_API_KEY';
+
 export interface ICoordinates {
   lat: number;
   lng: number;
@@ -29,6 +32,10 @@ export interface IMapProps {
 
 export default function Map(props: IMapProps) {
   const [eventInfo, setEventInfo] = useState<IEventInfo | null>(null);
+
+  if (GOOGLE_API_KEY === 'YOUR_API_KEY') {
+    throw new Error('Google API key is not added');
+  }
 
   const onMarkerClick = (eventInfo: IEventInfo) => (e: any) => {
     e.preventDefault();
@@ -74,7 +81,7 @@ export default function Map(props: IMapProps) {
           fullscreenControl: false,
         }}
         bootstrapURLKeys={{
-          key: 'AIzaSyAc50DYL8aXkVnn1mJotnURhhfSfKNHeog',
+          key: GOOGLE_API_KEY,
         }}
         defaultZoom={props.zoom || 5}
         defaultCenter={{
