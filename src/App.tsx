@@ -68,6 +68,7 @@ function App() {
             <CardActions>
               <Button
                 component='a'
+                href='https://github.com/NiveshSinghChauhan/wildfire_tracking_app'
                 size='small'
                 startIcon={<Icon icon={GithubIcon} />}>
                 Github Repository
